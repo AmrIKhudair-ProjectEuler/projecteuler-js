@@ -7,15 +7,16 @@
 const largetPalindromeProductOFTwoNDigitsNumber = n => {
   const max = Math.pow(10, n) - 1
   let largest = 0
+  let passes
   for (let a = max; a > Math.pow(10, n - 1) - 1; a--) {
     for (let b = max; b >= a; b--) {
       const p = a * b
       if (p <= largest) continue
       const s = '' + p
-      let palindrome = true
+      passes = true
       for (let i = 0; i < s.length / 2 - 0.5; i++) {
-        if (s[i] !== s[s.length - i - 1]) { palindrome = false; break }
-      } if (palindrome) largest = p
+        if (s[i] !== s[s.length - i - 1]) { passes = false; break }
+      } if (passes) largest = p
     }
   } return largest
 }
