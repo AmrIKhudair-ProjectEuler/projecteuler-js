@@ -8,8 +8,10 @@
     By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 */
 
-let sum = 0
+const sumOfEvenFibonacciNumbersLessThan = max => {
+  let sum = 0
+  for (let [a, b] = [1, 2]; a <= max; [a, b] = [b, a + b]) if (a % 2 === 0) sum += a
+  return sum
+}
 
-for (let [a, b] = [1, 2]; a <= 4000000; [a, b] = [b, a + b]) if (a % 2 === 0) sum += a
-
-console.log(sum) // 4613732
+console.log(sumOfEvenFibonacciNumbersLessThan(4000000)) // 4613732

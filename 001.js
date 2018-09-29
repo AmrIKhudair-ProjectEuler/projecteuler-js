@@ -6,8 +6,10 @@
     Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
-let sum = 0
+const sumOfMultiplesLessThan = (primes = [], max) => {
+  let sum = 0
+  for (let n = 1; n < 1000; n++) if (primes.some(prime => n % prime === 0)) sum += n
+  return sum
+}
 
-for (let n = 1; n < 1000; n++) if (n % 3 === 0 || n % 5 === 0) sum += n
-
-console.log(sum) // 233168
+console.log(sumOfMultiplesLessThan([3, 5], 1000)) // 233168
